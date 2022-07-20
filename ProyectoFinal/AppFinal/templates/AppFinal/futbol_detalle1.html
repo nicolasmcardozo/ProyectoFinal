@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail1</title>
+</head>
+<body>
+    <li>Nombre del equipo: <i>{{futbol.nombre_equipo}}</i></li>
+    <li>Número de integrantes del equipo: <i>{{futbol.integrantes}}</i></li>
+    <li>Email del representante del equipo: <i>{{futbol.email_representante}}</i></li>
+    <li>Telefono de contacto del representante del equipo: <i>{{futbol.telefono_contacto}}</i></li>
+    <li>ID del torneo: <i>{{futbol.id_torneo}}</i></li>
+    <h3>Recordemos:</h3>
+    <p>Id Torneo:</p>
+    <p>1 - Futbol 5 Masculino</p>
+    <p>2 - Futbol 7 Masculino</p>
+    <p>3 - Futbol 11 Masculino</p>
+    <p>4 - Futbol 5 Femenino</p>
+    <p>5 - Futbol 7 Femenino</p>
+    <p>6 - Futbol 11 Femenino</p>
+    <p>
+        <a href = "{% url 'Futbol' %}"> Volver</a>
+    </p>
+</body>
+</html>

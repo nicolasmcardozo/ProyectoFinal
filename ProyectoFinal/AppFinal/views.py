@@ -183,3 +183,34 @@ def editarPerfil(request):
 
       #Voy al html que me permite editar
       return render(request, "AppFinal/editarPerfil.html", {"miFormulario":miFormulario, "usuario":usuario})
+
+class FutbolList(LoginRequiredMixin, ListView):
+	model = Futbol
+	template_name = "AppFinal/futbol_list.html"
+
+class FutbolDetalle(LoginRequiredMixin, DetailView):
+	model = Futbol
+	template_name = "AppFinal/futbol_detalle.html"
+
+class FutbolDetalle1(LoginRequiredMixin, DetailView):
+	model = Futbol
+	template_name = "AppFinal/futbol_detalle1.html"
+
+class FutbolCreacion(LoginRequiredMixin, CreateView):
+
+	model = Futbol
+	success_url = "/AppFinal/futbol"
+	fields= ['nombre_equipo','integrantes','email_representante','telefono_contacto','id_torneo']
+
+
+class FutbolDelete(LoginRequiredMixin, DeleteView):
+
+	model = Futbol
+	success_url = "/AppFinal/futbol"
+
+class FutbolUpdate(LoginRequiredMixin, UpdateView):
+
+    model = Futbol
+    success_url = "/AppFinal/futbol"
+    fields= ['nombre_equipo','integrantes','email_representante','telefono_contacto','id_torneo']
+

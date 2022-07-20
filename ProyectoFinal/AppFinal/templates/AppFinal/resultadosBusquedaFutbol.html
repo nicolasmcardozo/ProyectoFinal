@@ -15,12 +15,16 @@
     {% for equipo_futbol in equipos_futbol %}
 
 
-       <li>{{equipo_futbol.nombre_equipo}}</li>
-       <li>{{equipo_futbol.integrantes}}</li>
-       <li>{{equipo_futbol.email_representante}}</li>
-       <li>{{equipo_futbol.telefono_contacto}}</li>
-       <li>{{equipo_futbol.id_torneo}}</li>
-
+       <li>
+        
+           <p>{{equipo_futbol.nombre_equipo}}</p>
+           
+           
+       </li>
+          <a href="{% url 'Edit' equipo_futbol.id %}">Editar</a>
+          <a href="{% url 'Delete' equipo_futbol.id %}">Borar</a>
+          
+            
     {% endfor %}
  
     </ul>
@@ -38,3 +42,5 @@
     </p>
 </body>
 </html>
+
+        

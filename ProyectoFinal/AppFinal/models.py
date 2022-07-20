@@ -29,3 +29,9 @@ class Volley(models.Model):
 
     def __str__(self):
         return f"{self.nombre_equipo}"
+
+
+class Avatar(models.Model):  
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    imagen = models.ImageField(upload_to='avatares',null=True,blank=True)

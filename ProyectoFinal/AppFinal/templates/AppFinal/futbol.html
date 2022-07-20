@@ -1,25 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol</title>
+</head>
+<body>
 
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    {% if miFormulario.errors %}
+    {% extends "AppFinal/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
 
-    <p style="color: red;"> Están mal los datos, revisar</p>
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/media/avatares/futsal.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Canchas Futbol 5</h2>
+                    <p class="lead mb-0">Canchas profesional de parquet estilo Futsal.</p>
+                    <p class="lead mb-0">Dimensiones:</p>
+                    <p class="lead mb-0">-Longitud: 40 metros.</p>
+                    <p class="lead mb-0">-Ancho: 25 metros.</p>
+                    <p class="lead mb-0">-Tiempo de partido: 2 tiempos de 20 minutos.</p>
+                    </p>
+                </div>
+            </div>
 
-    {% endif %}
 
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('/media/avatares/sintetico.jpg')"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Canchas Futbol 7</h2>
+                        <p class="lead mb-0">Canchas de sintético.</p>
+                        <p class="lead mb-0">Dimensiones:</p>
+                        <p class="lead mb-0">-Longitud: 50 metros.</p>
+                        <p class="lead mb-0">-Ancho: 30 metros.</p>
+                        <p class="lead mb-0">-Tiempo de partido: 2 tiempos de 30 minutos.</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/media/avatares/11.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Canchas Futbol 11</h2>
+                        <p class="lead mb-0">Canchas de pasto natural</p>
+                        <p class="lead mb-0">Dimensiones:</p>
+                        <p class="lead mb-0">-Longitud: 100 metros.</p>
+                        <p class="lead mb-0">-Ancho: 50 metros.</p>
+                        <p class="lead mb-0">-Tiempo de partido: 2 tiempos de 45 minutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <form action="" method="POST">{% csrf_token %}
+    
 
-        <!-- Acá está la magia de Django-->
-        
-        <table>
+    <p>
+        <a href = "{% url 'anotarseFutbol' %}"> Anotarse Torneo Futbol</a>
+    </p>
 
-            {{ miFormulario.as_table }}
-
-
-        </table>
-
-        
-        <input type="submit", value="Enviar">
-
-    </form>
+    <p>
+        <a href = "{% url 'busquedaEquipoFutbol' %}"> Busca tu equipo!</a>
+    </p>
+    
+    {% endblock %}
+</body>
+</html>
+    
 

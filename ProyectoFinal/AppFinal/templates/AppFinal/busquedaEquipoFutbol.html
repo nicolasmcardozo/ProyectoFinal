@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>busquedaEquipoFutbol</title>
+</head>
+<body>
+    <h3>Ingrese nombre de equipo</h3>
+
+   <form action="/AppFinal/buscarEquipoFutbol/" method="GET">
+
+       <input type="string" name="nombre_equipo" id="nombre_equipo">
+       <input type="submit" value="buscar">
+
+   </form>
+   <p>
+    <a href = "{% url 'Futbol' %}"> Volver</a>
+</p>
+</body>
+</html>

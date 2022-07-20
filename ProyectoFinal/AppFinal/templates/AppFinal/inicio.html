@@ -7,7 +7,46 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h3>Inicio</h3>
+    {% extends "AppFinal/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+
+    <!-- Image Showcases-->
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/media/avatares/futbol.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Torneo Futbol</h2>
+                    <p class="lead mb-0">Anotate al mejor torneo de Futbol masculino y femenino de Gran Buenos Aires, con más de 20 equipos en la liga, Futbol 5, Futbol 7 y Futbol 11, arbitros profesionales e increibles premios.</p>
+                    
+                </div>
+            </div>
+
+
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('/media/avatares/tenis.jpg')"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Torneo Tenis</h2>
+                    <p class="lead mb-0">Anotate al torneo de tenis single y dobles masculino y femenino que se juega en nuestra sede de Pilar, con canchas en estado inmejorable, cada partido contará con su correspondiente árbitro y jueces de línea. Los partidos serán ida y vuelta con cada contrincante para luego definir mediante llaves al ganador del Torneo. </p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/media/avatares/volley.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Torneo Volley</h2>
+                    <p class="lead mb-0">Nuestro torneo está exclusivamente orientado a equipos mixtos, sin límites de inscriptos por equipo, pero siempre bajo la modalidad 3 hombres y 3 mujeres en cancha. Cada partido contará con arbitro y se jugarán en la sede Pacheco.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+       
+
+
+
+
+    {% endblock %}
 </body>
 </html>
 

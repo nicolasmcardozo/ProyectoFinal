@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if equipos_futbol %}
+
+    <p> Datos de incripción de {{nombre_equipo}}:</p>
+
+    <ul>
+    {% for equipo_futbol in equipos_futbol %}
+
+
+       <li>{{equipo_futbol.nombre_equipo}}</li>
+       <li>{{equipo_futbol.integrantes}}</li>
+       <li>{{equipo_futbol.email_representante}}</li>
+       <li>{{equipo_futbol.telefono_contacto}}</li>
+       <li>{{equipo_futbol.id_torneo}}</li>
+
+    {% endfor %}
+ 
+    </ul>
+
+    {% else %}
+
+    <p>No hay datos con esa descripción</p>
+
+    {% endif %}
+
+    <p style="color: red;">{{respuesta}}</p>
+
+    <p>
+        <a href = "{% url 'Futbol' %}"> Volver</a>
+    </p>
+</body>
+</html>

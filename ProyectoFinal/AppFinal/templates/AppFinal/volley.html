@@ -1,4 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volley</title>
+</head>
+<body>
+    {% extends "AppFinal/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
 
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/media/avatares/voley.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Canchas de Volley</h2>
+                    <p class="lead mb-0">Canchas de parquet de dimensiones profesionales con árbitro. Exlusivamente equipos mixtos!!</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
     {% if miFormulario.errors %}
 
@@ -22,3 +45,8 @@
         <input type="submit", value="Enviar">
 
     </form>
+    {% endblock %}
+    
+</body>
+</html>
+    

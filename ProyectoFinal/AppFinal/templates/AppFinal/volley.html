@@ -22,31 +22,20 @@
             </div>
         </div>
     </section>
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    {% if miFormulario.errors %}
 
-    <p style="color: red;"> Están mal los datos, revisar</p>
+    <p>
+        <a href = "{% url 'anotarseVolley' %}"> Anotarse Torneo Volley</a>
+    </p>
 
-    {% endif %}
+    <p>
+        <a href = "{% url 'busquedaEquipoVolley' %}"> Búsqueda de equipo!</a>
+    </p>
 
-
-    <form action="" method="POST">{% csrf_token %}
-
-        <!-- Acá está la magia de Django-->
-        
-        <table>
-
-            {{ miFormulario.as_table }}
-
-
-        </table>
-
-        
-        <input type="submit", value="Enviar">
-
-    </form>
-    {% endblock %}
+    <p>
+        <a href = "{% url 'List2' %}"> Ver equipos anotados.</a>
+    </p>
     
+    {% endblock %}   
 </body>
 </html>
     

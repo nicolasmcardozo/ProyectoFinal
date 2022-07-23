@@ -20,6 +20,9 @@ class TenisSingle(models.Model):
     telefono_contacto = models.CharField(max_length=40)
     id_torneo = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.nombre_participante}"
+
 class Volley(models.Model):
     nombre_equipo = models.CharField(max_length=40)
     integrantes = models.IntegerField()

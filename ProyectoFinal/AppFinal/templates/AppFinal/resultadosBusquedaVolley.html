@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resultadosBusquedaVolley</title>
+</head>
+<body>
+    {% if equipos_volley %}
+
+    <p> Datos de incripción de {{nombre_equipo}}:</p>
+
+    <ul>
+    {% for equipo_volley in equipos_volley %}
+
+
+       <li>
+        
+           <p>{{equipo_volley.nombre_equipo}}</p>
+           
+           
+       </li>
+          <a href="{% url 'Edit2' equipo_volley.id %}">Editar</a>
+          <a href="{% url 'Delete2' equipo_volley.id %}">Borar</a>
+          
+            
+    {% endfor %}
+ 
+    </ul>
+
+    {% else %}
+
+    <p>No hay datos con esa descripción</p>
+
+    {% endif %}
+
+    <p style="color: red;">{{respuesta}}</p>
+
+    <p>
+        <a href = "{% url 'Volley' %}"> Volver</a>
+    </p>
+</body>
+</html>

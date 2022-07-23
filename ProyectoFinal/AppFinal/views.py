@@ -214,3 +214,137 @@ class FutbolUpdate(LoginRequiredMixin, UpdateView):
     success_url = "/AppFinal/futbol"
     fields= ['nombre_equipo','integrantes','email_representante','telefono_contacto','id_torneo']
 
+###VIEW###
+
+@login_required
+def anotarseVolley(request):
+	if request.method == 'POST':
+
+
+		miFormulario = VolleyFormulario(request.POST)
+		print(miFormulario)
+
+
+		if miFormulario.is_valid:
+
+
+			informacion = miFormulario.cleaned_data
+			volley = Volley(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
+			volley.save()
+			return render(request,"AppFinal/inicio.html")
+
+
+	else:
+		miFormulario = VolleyFormulario()
+
+
+	return render(request,"AppFinal/anotarseVolley.html",{"miFormulario":miFormulario})
+
+@login_required
+def anotarseTenis(request):
+	if request.method == 'POST':
+
+
+		miFormulario = TenisFormulario(request.POST)
+		print(miFormulario)
+
+
+		if miFormulario.is_valid:
+
+
+			informacion = miFormulario.cleaned_data
+			tenis = TenisSingle(nombre_participante = informacion['nombre_participante'], email_tenista = informacion['email_tenista'], telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
+			tenis.save()
+			return render(request,"AppFinal/inicio.html")
+
+
+	else:
+		miFormulario = TenisFormulario()
+
+
+	return render(request,"AppFinal/anotarseTenis.html",{"miFormulario":miFormulario})
+
+@login_required
+def busquedaEquipoVolley(request):
+	return render(request,"AppFinal/busquedaEquipoVolley.html")
+
+def buscarEquipoVolley(request):
+	if request.GET["nombre_equipo"]:
+		nombre_equipo = request.GET['nombre_equipo'] 
+		equipos_volley = Volley.objects.filter(nombre_equipo__icontains=nombre_equipo)
+		return render(request, "AppFinal/resultadosBusquedaVolley.html", {"equipos_volley":equipos_volley, "nombre_equipo":nombre_equipo})
+
+	else:
+
+		respuesta = "No enviaste datos"
+
+	return render(request,"AppFinal/inicio.html",{"respuesta":respuesta})
+
+@login_required
+def busquedaEquipoTenis(request):
+	return render(request,"AppFinal/busquedaEquipoTenis.html")
+
+def buscarEquipoTenis(request):
+	if request.GET["nombre_participante"]:
+		nombre_participante = request.GET['nombre_participante'] 
+		equipos_tenis = TenisSingle.objects.filter(nombre_participante__icontains=nombre_participante)
+		return render(request, "AppFinal/resultadosBusquedaTenis.html", {"equipos_tenis":equipos_tenis, "nombre_participante":nombre_participante})
+
+	else:
+
+		respuesta = "No enviaste datos"
+
+	return render(request,"AppFinal/inicio.html",{"respuesta":respuesta})
+
+class VolleyList(LoginRequiredMixin, ListView):
+	model = Volley
+	template_name = "AppFinal/volley_list.html"
+
+class VolleyDetalle(LoginRequiredMixin, DetailView):
+	model = Volley
+	template_name = "AppFinal/volley_detalle.html"
+
+class VolleyCreacion(LoginRequiredMixin, CreateView):
+
+	model = Volley
+	success_url = "/AppFinal/volley"
+	fields= ['nombre_equipo','integrantes','email_representante','telefono_contacto','id_torneo']
+
+
+class VolleyDelete(LoginRequiredMixin, DeleteView):
+
+	model = Volley
+	success_url = "/AppFinal/volley"
+
+class VolleyUpdate(LoginRequiredMixin, UpdateView):
+
+    model = Volley
+    success_url = "/AppFinal/volley"
+    fields= ['nombre_equipo','integrantes','email_representante','telefono_contacto','id_torneo']
+
+class TenisList(LoginRequiredMixin, ListView):
+	model = TenisSingle
+	template_name = "AppFinal/tenis_list.html"
+
+class TenisDetalle(LoginRequiredMixin, DetailView):
+	model = TenisSingle
+	template_name = "AppFinal/tenis_detalle.html"
+
+class TenisCreacion(LoginRequiredMixin, CreateView):
+
+	model = TenisSingle
+	success_url = "/AppFinal/tenis"
+	fields= ['nombre_participante','email_tenista','telefono_contacto','id_torneo']
+
+
+class TenisDelete(LoginRequiredMixin, DeleteView):
+
+	model = TenisSingle
+	success_url = "/AppFinal/tenis"
+
+class TenisUpdate(LoginRequiredMixin, UpdateView):
+
+    model = TenisSingle
+    success_url = "/AppFinal/tenis"
+    fields= ['nombre_participante','email_tenista','telefono_contacto','id_torneo']
+

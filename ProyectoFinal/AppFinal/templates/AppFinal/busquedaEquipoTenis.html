@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>busquedaEquipoTenis</title>
+</head>
+<body>
+    <h3>Ingrese nombre de competidor:</h3>
+
+    <form action="/AppFinal/buscarEquipoTenis/" method="GET">
+
+       <input type="string" name="nombre_participante" id="nombre_participante">
+       <input type="submit" value="buscar">
+
+    </form>
+    <p>
+      <a href = "{% url 'Tenis' %}"> Volver</a>
+    </p>
+
+</body>
+</html>

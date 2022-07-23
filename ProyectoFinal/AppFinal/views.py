@@ -173,13 +173,15 @@ def editarPerfil(request):
                   usuario.email = informacion['email']
                   usuario.password1 = informacion['password1']
                   usuario.password2 = informacion['password2']
+                  usuario.first_name = informacion['first_name']
+                  usuario.last_name = informacion['last_name']
                   usuario.save()
 
                   return render(request, "AppFinal/inicio.html") #Vuelvo al inicio o a donde quieran
       #En caso que no sea post
       else: 
             #Creo el formulario con los datos que voy a modificar
-            miFormulario= UserEditForm(initial={ 'email':usuario.email}) 
+            miFormulario= UserEditForm(initial={ 'email':usuario.email,'first_name':usuario.first_name,'last_name':usuario.last_name}) 
 
       #Voy al html que me permite editar
       return render(request, "AppFinal/editarPerfil.html", {"miFormulario":miFormulario, "usuario":usuario})

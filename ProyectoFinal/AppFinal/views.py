@@ -350,3 +350,6 @@ class TenisUpdate(LoginRequiredMixin, UpdateView):
     success_url = "/AppFinal/tenis"
     fields= ['nombre_participante','email_tenista','telefono_contacto','id_torneo']
 
+def about(request):
+	return render(request,"AppFinal/about.html")
+

@@ -38,5 +38,6 @@ urlpatterns = [
     path(r'^nuevo$',views.VolleyCreacion.as_view(),name='New2'),
     path(r'^editar/(?P<pk>\d+2)$',views.VolleyUpdate.as_view(),name='Edit2'),
     path(r'^borrar/(?P<pk>\d+2)$',views.VolleyDelete.as_view(),name='Delete2'),
+    path('about',views.about,name='About'),
 ]
 

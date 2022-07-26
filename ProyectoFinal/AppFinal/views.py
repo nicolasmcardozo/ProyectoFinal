@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def inicio(request):
-	return render(request,"AppFinal/inicio.html")
+	return render(request,'AppFinal/inicio.html', {})
 
 
 def futbol(request):

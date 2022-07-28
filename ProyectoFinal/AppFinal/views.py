@@ -102,7 +102,7 @@ def buscarEquipoFutbol(request):
 		respuesta = "No enviaste datos"
 	return render(request,"AppFinal/inicio.html",{"respuesta":respuesta})
 
-def login_request(request): #REVISAR
+def login_request(request): 
 
       if request.method == "POST":
             form = AuthenticationForm(request, data = request.POST)
@@ -143,33 +143,29 @@ def register(request):
 
 @login_required
 def editarPerfil(request):
+	usuario = request.user #Instancia de login
+	
+	if request.method == 'POST':
+		miFormulario = UserEditForm(request.POST) 
+		
+		if miFormulario.is_valid():   #Si pasó la validación de Django
+			informacion = miFormulario.cleaned_data
+			usuario.email = informacion['email']
+			usuario.password1 = informacion['password1']
+			usuario.password2 = informacion['password2']
+			usuario.first_name = informacion['first_name']
+			usuario.last_name = informacion['last_name']
+			usuario.save()
+			
+		return render(request, "AppFinal/inicio.html") #Vuelvo al INICIO
+      
+	#En caso que no sea post
+	else: 
+		#Creo el formulario con los datos que voy a modificar
+		miFormulario= UserEditForm(initial={ 'email':usuario.email,'first_name':usuario.first_name,'last_name':usuario.last_name}) 
 
-      #Instancia del login
-      usuario = request.user
-     
-      #Si es metodo POST hago lo mismo que el agregar
-      if request.method == 'POST':
-            miFormulario = UserEditForm(request.POST) 
-            if miFormulario.is_valid():   #Si pasó la validación de Django
-
-            	informacion = miFormulario.cleaned_data
-            
-                  #Datos que se modificarán
-            	usuario.email = informacion['email']
-            	usuario.password1 = informacion['password1']
-            	usuario.password2 = informacion['password2']
-            	usuario.first_name = informacion['first_name']
-            	usuario.last_name = informacion['last_name']
-            	usuario.save()
-
-            return render(request, "AppFinal/inicio.html") #Vuelvo al inicio o a donde quieran
-      #En caso que no sea post
-      else: 
-            #Creo el formulario con los datos que voy a modificar
-            miFormulario= UserEditForm(initial={ 'email':usuario.email,'first_name':usuario.first_name,'last_name':usuario.last_name}) 
-
-      #Voy al html que me permite editar
-      return render(request, "AppFinal/editarPerfil.html", {"miFormulario":miFormulario, "usuario":usuario})
+		#Voy al html que me permite editar
+		return render(request, "AppFinal/editarPerfil.html", {"miFormulario":miFormulario, "usuario":usuario})
 
 class FutbolList(LoginRequiredMixin, ListView):
 	model = Futbol

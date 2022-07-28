@@ -16,18 +16,17 @@ def inicio(request):
 	return render(request,'AppFinal/inicio.html', {})
 
 
-def futbol(request):
+def futbol(request): #CORREGIDO
 	if request.method == 'POST':
 
 		miFormulario = FutbolFormulario(request.POST)
 		print(miFormulario)
 
 		if miFormulario.is_valid:
-
 			informacion = miFormulario.cleaned_data
 			futbol = Futbol(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
 			futbol.save()
-			return render(request,"AppFinal/inicio.html")
+		return render(request,"AppFinal/inicio.html")
 
 	else:
 		miFormulario = FutbolFormulario()
@@ -35,18 +34,17 @@ def futbol(request):
 	return render(request,"AppFinal/futbol.html",{"miFormulario":miFormulario})
 
 @login_required
-def anotarseFutbol(request):
+def anotarseFutbol(request): #CORREGIDO
 	if request.method == 'POST':
 
 		miFormulario = FutbolFormulario(request.POST)
 		print(miFormulario)
 
 		if miFormulario.is_valid:
-
 			informacion = miFormulario.cleaned_data
 			futbol = Futbol(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
 			futbol.save()
-			return render(request,"AppFinal/inicio.html")
+		return render(request,"AppFinal/inicio.html")
 
 	else:
 		miFormulario = FutbolFormulario()
@@ -59,18 +57,13 @@ def tenissingle(request):
 	if request.method == "POST":
 
 		miFormulario = TenisFormulario(request.POST)
-
 		print(miFormulario)
 
 		if miFormulario.is_valid:
-
 			informacion = miFormulario.cleaned_data
-
 			tenissingle = TenisSingle (nombre_participante=informacion["nombre_participante"],email_tenista = informacion["email_tenista"], telefono_contacto = informacion["telefono_contacto"] ,id_torneo=informacion["id_torneo"])
-
 			tenissingle.save()
-
-			return render(request,"AppFinal/inicio.html")
+		return render(request,"AppFinal/inicio.html")
 
 	else:
 		miFormulario = TenisFormulario()
@@ -82,18 +75,13 @@ def volley(request):
 	if request.method == "POST":
 
 		miFormulario = VolleyFormulario(request.POST)
-
 		print(miFormulario)
 
 		if miFormulario.is_valid:
-
 			informacion = miFormulario.cleaned_data
-
 			volley = Volley(nombre_equipo=informacion["nombre_equipo"],integrantes = informacion["integrantes"], email_representante = informacion["email_representante"],telefono_contacto = informacion["telefono_contacto"],id_torneo = informacion["id_torneo"])
-
 			volley.save()
-
-			return render(request,"AppFinal/inicio.html")
+		return render(request,"AppFinal/inicio.html")
 
 	else:
 		miFormulario = VolleyFormulario()
@@ -111,13 +99,10 @@ def buscarEquipoFutbol(request):
 		return render(request, "AppFinal/resultadosBusquedaFutbol.html", {"equipos_futbol":equipos_futbol, "nombre_equipo":nombre_equipo})
 
 	else:
-
 		respuesta = "No enviaste datos"
-
 	return render(request,"AppFinal/inicio.html",{"respuesta":respuesta})
 
-def login_request(request):
-
+def login_request(request): #REVISAR
 
       if request.method == "POST":
             form = AuthenticationForm(request, data = request.POST)
@@ -151,10 +136,10 @@ def register(request):
 		if form.is_valid():
 			username = form.cleaned_data['username']
 			form.save()
-			return render(request, "AppFinal/inicio.html",{"mensaje":"Usuario Creado"})
+		return render(request, "AppFinal/inicio.html",{"mensaje":"Usuario Creado"})
 	else:
 		form = UserRegisterForm()
-	return render(request,"AppFinal/registro.html",{"form":form})
+		return render(request,"AppFinal/registro.html",{"form":form})
 
 @login_required
 def editarPerfil(request):
@@ -167,17 +152,17 @@ def editarPerfil(request):
             miFormulario = UserEditForm(request.POST) 
             if miFormulario.is_valid():   #Si pasó la validación de Django
 
-                  informacion = miFormulario.cleaned_data
+            	informacion = miFormulario.cleaned_data
             
                   #Datos que se modificarán
-                  usuario.email = informacion['email']
-                  usuario.password1 = informacion['password1']
-                  usuario.password2 = informacion['password2']
-                  usuario.first_name = informacion['first_name']
-                  usuario.last_name = informacion['last_name']
-                  usuario.save()
+            	usuario.email = informacion['email']
+            	usuario.password1 = informacion['password1']
+            	usuario.password2 = informacion['password2']
+            	usuario.first_name = informacion['first_name']
+            	usuario.last_name = informacion['last_name']
+            	usuario.save()
 
-                  return render(request, "AppFinal/inicio.html") #Vuelvo al inicio o a donde quieran
+            return render(request, "AppFinal/inicio.html") #Vuelvo al inicio o a donde quieran
       #En caso que no sea post
       else: 
             #Creo el formulario con los datos que voy a modificar
@@ -222,23 +207,18 @@ class FutbolUpdate(LoginRequiredMixin, UpdateView):
 def anotarseVolley(request):
 	if request.method == 'POST':
 
-
 		miFormulario = VolleyFormulario(request.POST)
 		print(miFormulario)
 
-
 		if miFormulario.is_valid:
-
 
 			informacion = miFormulario.cleaned_data
 			volley = Volley(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
 			volley.save()
 			return render(request,"AppFinal/inicio.html")
 
-
 	else:
 		miFormulario = VolleyFormulario()
-
 
 	return render(request,"AppFinal/anotarseVolley.html",{"miFormulario":miFormulario})
 
@@ -246,25 +226,21 @@ def anotarseVolley(request):
 def anotarseTenis(request):
 	if request.method == 'POST':
 
-
 		miFormulario = TenisFormulario(request.POST)
 		print(miFormulario)
 
-
 		if miFormulario.is_valid:
-
 
 			informacion = miFormulario.cleaned_data
 			tenis = TenisSingle(nombre_participante = informacion['nombre_participante'], email_tenista = informacion['email_tenista'], telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
 			tenis.save()
-			return render(request,"AppFinal/inicio.html")
-
+		return render(request,"AppFinal/inicio.html")
 
 	else:
 		miFormulario = TenisFormulario()
 
-
 	return render(request,"AppFinal/anotarseTenis.html",{"miFormulario":miFormulario})
+
 
 @login_required
 def busquedaEquipoVolley(request):

@@ -85,7 +85,7 @@ rel="stylesheet"
             <a type="button" class="btn btn-link px-3 me-2" href="{% url 'Login' %}">Login</a>
             {% endif %}
             {% if request.user.is_authenticated %}
-            <p class = "text mb-4 mb-lg-8">Hola, {{user.username}}</p>
+            <p class = "text mb-3 mb-lg-0">Hola, {{user.username}}</p>
             {% endif %} 
           <a type="button" class="btn btn-link px-3 me-2" href="{% url 'Logout' %}">Logout</a>
           <a type="button" class="btn btn-primary me-3" href="{% url 'Register' %}">Registrate</a>
@@ -120,15 +120,6 @@ rel="stylesheet"
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
                         </ul>
                     </div>
                 </div>

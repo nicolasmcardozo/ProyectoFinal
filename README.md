@@ -10,7 +10,7 @@ NOTA: se recomienda usar una versión de Python 3.8 o superior.
 
 in *nix systems:
 
-### > python --version
+### python --version
 ### > Python 3.8.0
 in windows:
 

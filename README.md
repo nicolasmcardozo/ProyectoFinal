@@ -30,10 +30,10 @@ Una vez finalizada la instalacion de dependencias hay que ejecutar los comandos 
 Migrations
 Inicializar la base datos:
 
-### `> python mananage.py migrate`
+### `> python manage.py migrate`
 
 windows:
-### `c:\> py mananage.py migrate`
+### `c:\> py manage.py migrate`
 
 ejecutar el test server
 ### `> python manage.py runserver`

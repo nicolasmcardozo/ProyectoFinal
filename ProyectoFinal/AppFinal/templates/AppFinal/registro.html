@@ -37,8 +37,10 @@ rel="stylesheet"
                         {% csrf_token %}
                         {{form.as_p}}
                         <button type="submit"> Registrate</button>
+                        <p>
+                          <a href = "{% url 'Inicio' %}"> Volver</a>
+                      </p>
                         
-      
                       </form>
       
                     </div>

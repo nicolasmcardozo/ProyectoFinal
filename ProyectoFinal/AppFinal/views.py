@@ -120,11 +120,11 @@ def login_request(request):
                         return render(request,"AppFinal/inicio.html",{"mensaje":f"Bienvenido {usuario}"} )
                   else:
                         
-                        return render(request,"AppFinal/inicio.html",{"mensaje":"Error, datos incorrectos"} )
+                        return render(request,"AppFinal/login.html",{"mensaje":"Error, datos incorrectos"} )
 
             else:
                         
-                        return render(request,"AppFinal/inicio.html",{"mensaje":"Error, formulario erroneo"})
+                        return render(request,"AppFinal/login.html",{"mensaje":"Error, formulario erroneo"})
 
       form = AuthenticationForm()
 

@@ -10,17 +10,17 @@ NOTA: se recomienda usar una versión de Python 3.8 o superior.
 
 in *nix systems:
 
-### > python --version
-### > Python 3.8.0
+### `> python --version`
+### `> Python 3.8.0`
 in windows:
 
-### c:\> py --version
-### c:\> Python 3.8.0
+### `c:\> py --version`
+### `c:\> Python 3.8.0`
 
 2.  Instalar dependencias
 Se necesita ejecutar pip install, verificar estar en la carpeta del proyecto:
 
-### > pip install -r requirements.txt
+### `> pip install -r requirements.txt`
 
 Algunos sistemas operativos tal vez requieran usar pip3 en vez de pip.
 
@@ -30,18 +30,18 @@ Una vez finalizada la instalacion de dependencias hay que ejecutar los comandos 
 Migrations
 Inicializar la base datos:
 
-### > python mananage.py migrate
+### `> python mananage.py migrate`
 
 windows:
-### c:\> py mananage.py migrate
+### `c:\> py mananage.py migrate`
 
 ejecutar el test server
-### > python manage.py runserver
+### `> python manage.py runserver`
 
 windows:
 
-### c:\> py manage.py runserver
+### `c:\> py manage.py runserver`
 
 # create admin account
 
-### python manage.py createsuperuser
+### `python manage.py createsuperuser`

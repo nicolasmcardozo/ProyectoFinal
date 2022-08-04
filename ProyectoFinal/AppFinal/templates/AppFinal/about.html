@@ -10,25 +10,37 @@
     {% extends "AppFinal/padre.html" %}
     {% load static %}
     {% block contenidoQueCambia %}
-    <br>
-    <br>
-    <h3>Proyecto realizado por: </h3>
-    <br>
-    <li>Nicolas Martin Cardozo: 
-    <p>Profesión: Ingeniero Mecánico - MBA</p>
-    <p>Edad: 28 años</p>
-    <p>Nacionalidad: Argentino</p>
-    <p>Trabajo: FATE - Fábrica Argentina de Neumáticos en el departamento de ing. industrial.</p>
-    </li>
-    <br>
-    <li>Nicolas Damasso:
-    <p>Profesión: Data Analytics. Criminalistica</p>
-    <p>Edad: 38 años</p>
-    <p>Nacionalidad: Argentino</p>
-    <p>Trabajo: Movistar Argentina</p>
-    </li>
-    <br>
-    <li>Tomas Monge</li>
+    <div style="height:90vh ;">
+    <div class="container-fluid p-5 bg-primary text-white text-center" >
+        <h1>Integrantes del proyecto</h1>
+      </div>
+        
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>Nicolas Martin Cardozo</h3>
+            <p>Profesión: Ingeniero Mecánico - MBA</p>
+            <p>Edad: 28 años</p>
+            <p>Nacionalidad: Argentino</p>
+            <p>Trabajo: FATE - Fábrica Argentina de Neumáticos en el departamento de ing. industrial.</p>
+          </div>
+          <div class="col-sm-4">
+            <h3>Nicolas Damasso</h3>
+            <p>Profesión: Data Analytics. Criminalistica</p>
+            <p>Edad: 38 años</p>
+            <p>Nacionalidad: Argentino</p>
+            <p>Trabajo: Movistar Argentina</p>
+          </div>
+          <div class="col-sm-4">
+            <h3>Tomas Monge</h3>        
+            <p>Profesión: Lic. sistemas</p>
+            <p>Edad: 21 años</p>
+            <p>Nacionalidad: Argentino</p>
+            <p>Trabajo: QA Ssr en N5 NOW</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     {% endblock %}

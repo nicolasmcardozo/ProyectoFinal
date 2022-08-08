@@ -10,6 +10,7 @@ class Futbol(models.Model):
     email_representante = models.EmailField()
     telefono_contacto = models.CharField(max_length=40)
     id_torneo = models.IntegerField()
+    fecha_de_registro = models.DateField()
 
     def __str__(self):
         return f"{self.nombre_equipo}"

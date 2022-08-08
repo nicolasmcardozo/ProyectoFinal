@@ -9,6 +9,7 @@ class FutbolFormulario(forms.Form):
     email_representante = forms.EmailField()
     telefono_contacto = forms.CharField(max_length=40)
     id_torneo = forms.IntegerField()
+    fecha_de_registro = forms.DateField()
 
 class TenisFormulario(forms.Form):
 

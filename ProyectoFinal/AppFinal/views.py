@@ -24,7 +24,7 @@ def futbol(request): #CORREGIDO
 
 		if miFormulario.is_valid:
 			informacion = miFormulario.cleaned_data
-			futbol = Futbol(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
+			futbol = Futbol(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'],fecha_de_registro = informacion['fecha_de_registro'])
 			futbol.save()
 		return render(request,"AppFinal/inicio.html")
 
@@ -42,7 +42,7 @@ def anotarseFutbol(request): #CORREGIDO
 
 		if miFormulario.is_valid:
 			informacion = miFormulario.cleaned_data
-			futbol = Futbol(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'])
+			futbol = Futbol(nombre_equipo = informacion['nombre_equipo'], integrantes = informacion['integrantes'],email_representante = informacion['email_representante'],telefono_contacto = informacion['telefono_contacto'],id_torneo = informacion['id_torneo'], fecha_de_registro = informacion['fecha_de_registro'])
 			futbol.save()
 		return render(request,"AppFinal/inicio.html")
 

@@ -77,6 +77,9 @@ rel="stylesheet"
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'Volley' %}">Volley</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'AgregarAvatar' %}">AgregarAvatar</a>
+              </li>
         </ul>
         <!-- Left links -->
   
@@ -85,6 +88,7 @@ rel="stylesheet"
             <a type="button" class="btn btn-link px-3 me-2" href="{% url 'Login' %}">Login</a>
             {% endif %}
             {% if request.user.is_authenticated %}
+            <img height="128" src="{{object.avatar.url}}" />
             <p class = "text mb-3 mb-lg-0">Hola, {{user.username}}</p>
             {% endif %} 
           <a type="button" class="btn btn-link px-3 me-2" href="{% url 'Logout' %}">Logout</a>

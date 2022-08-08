@@ -10,3 +10,5 @@ admin.site.register(Futbol)
 admin.site.register(Volley)
 
 admin.site.register(TenisSingle)
+
+admin.site.register(Avatar)

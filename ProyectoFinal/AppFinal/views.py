@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from AppFinal.forms import FutbolFormulario,TenisFormulario,VolleyFormulario,UserRegisterForm,UserEditForm
-from AppFinal.models import Futbol, TenisSingle, Volley
+from AppFinal.forms import FutbolFormulario,TenisFormulario,VolleyFormulario,UserRegisterForm,UserEditForm,AvatarFormulario
+from AppFinal.models import Futbol, TenisSingle, Volley, Avatar
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
@@ -9,6 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 
@@ -324,4 +325,26 @@ class TenisUpdate(LoginRequiredMixin, UpdateView):
 
 def about(request):
 	return render(request,"AppFinal/about.html")
+
+def agregarAvatar(request):
+      if request.method == 'POST':
+
+            miFormulario = AvatarFormulario(request.POST, request.FILES) #aquí mellega toda la información del html
+
+            if miFormulario.is_valid():   #Si pasó la validación de Django
+
+
+                  u = User.objects.get(username=request.user)
+                
+                  avatar = Avatar(user=u, imagen=miFormulario.cleaned_data['imagen']) 
+      
+                  avatar.save()
+
+                  return render(request, "AppFinal/inicio.html") #Vuelvo al inicio o a donde quieran
+
+      else: 
+
+            miFormulario= AvatarFormulario() #Formulario vacio para construir el html
+
+      return render(request, "AppFinal/agregarAvatar.html", {"miFormulario":miFormulario})
 

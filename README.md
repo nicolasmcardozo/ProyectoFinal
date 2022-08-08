@@ -1,6 +1,6 @@
 # ProyectoFinal
 Proyecto Final CoderHouse - Python
-
+[![img](./portadavideo.png)](https://www.youtube.com/watch?v=uuzm1HjLBVA)
 
 Instalacion
 Para instalar y ejecutar:
@@ -21,7 +21,33 @@ in windows:
 Se necesita ejecutar pip install, verificar estar en la carpeta del proyecto:
 
 ### `> pip install -r requirements.txt`
+## Project structure
 
+``` 
+├── #AppFinal
+│    ├── #migrations
+│    ├── #static/AppFinal
+│    ├── #templates/AppFinal
+│    ├──__init__.py
+│    ├──settings.py
+│    ├──admin.py
+│    ├──apps.py
+│    ├──forms.py
+│    ├──models.py
+│    ├──tests.py
+│    ├──urls.py
+│    └──views.py
+├── # ProyectoFinal
+│    ├──__init__.py
+│    ├──asgi.py
+│    ├──settings.py
+│    ├──urls.py
+│    └──wsgi.py
+├── # media/avatares
+│   
+└── # manage.py
+
+```
 Algunos sistemas operativos tal vez requieran usar pip3 en vez de pip.
 
 3.  Setting Up Aplicacion Django

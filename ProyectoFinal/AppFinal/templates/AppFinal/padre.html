@@ -88,8 +88,9 @@ rel="stylesheet"
             <a type="button" class="btn btn-link px-3 me-2" href="{% url 'Login' %}">Login</a>
             {% endif %}
             {% if request.user.is_authenticated %}
-            <img height="60" src="{{object.avatar.url}}" />
+
             <p class = "text mb-3 mb-lg-0">Hola, {{user.username}}</p>
+            <img src=" + obj.imagen.url + "/>
             {% endif %} 
           <a type="button" class="btn btn-link px-3 me-2" href="{% url 'Logout' %}">Logout</a>
           <a type="button" class="btn btn-primary me-3" href="{% url 'Register' %}">Registrate</a>

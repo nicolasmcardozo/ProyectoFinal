@@ -78,7 +78,7 @@ rel="stylesheet"
                 <a class="nav-link" href="{% url 'Volley' %}">Volley</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'AgregarAvatar' %}">AgregarAvatar</a>
+                <a class="nav-link" href="{% url 'AgregarAvatar' %}">Agregar Avatar</a>
               </li>
         </ul>
         <!-- Left links -->
@@ -90,6 +90,7 @@ rel="stylesheet"
             {% if request.user.is_authenticated %}
 
             <p class = "text mb-3 mb-lg-0">Hola, {{user.username}}</p>
+
                {% if user.avatar %}
                  <img class="circular--square" src="{{ user.avatar.imagen.url }}" width="50" height="50">
                {% endif %}
